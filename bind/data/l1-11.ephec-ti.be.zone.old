@@ -1,0 +1,12 @@
+$TTL    86400
+@               IN      SOA     ns.l1-11.ephec-ti.be. admin.l1-11.ephec-ti.be. (
+                                2023041701      ; serial number
+                                14400              ; refresh
+                                3600            ; retry
+                                604800          ; expire
+                                86400           ; minimum TTL
+                                )
+l1-11.ephec-ti.be.	IN      NS      ns.l1-11.ephec-ti.be.
+ns.l1-11.ephec-ti.be.	IN      A       54.37.14.39
+ns			IN      A       54.37.14.39
+www			IN	A	54.37.14.39

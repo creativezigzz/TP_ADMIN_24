@@ -1,0 +1,8 @@
+server {
+    listen 80;
+    server_name blog.lx-y.ephec-ti.be;
+
+    root /var/www/html/blog;
+    index index.html;
+}
+

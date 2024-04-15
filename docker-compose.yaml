@@ -1,0 +1,64 @@
+services:
+  nginx:
+    build: ./nginx
+    volumes:
+      - ./nginx/html/:/var/www/html/
+      - ./nginx/config/nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - "80:80"
+    depends_on:
+      - php
+    networks:
+       dmz:
+        ipv4_address: 10.0.0.2
+  php:
+    build: ./php
+    volumes:
+      - ./nginx/html/:/var/www/html/
+    depends_on:
+      - mariadb
+    env_file:
+      - db.env
+    networks:
+       db_net:
+         ipv4_address: 172.16.0.2
+       dmz:
+         ipv4_address: 10.0.0.3
+  mariadb:
+    image: mariadb:11.1
+    restart: always
+    env_file:
+      - db/root.env
+      - db.env
+    volumes: 
+      - ./db/sql/:/docker-entrypoint-initdb.d/  #MariaDB container automatically loads SQL script at startup
+      - ./db/my-resolve.cnf:/etc/mysql/conf.d/my-resolve.cnf
+    networks:
+       db_net:
+         ipv4_address: 172.16.0.3
+
+  dns:
+    build: ./bind
+    container_name: dns
+    restart: unless-stopped
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+    networks:
+      dmz:
+        ipv4_address: 10.0.0.4
+
+networks:
+  db_net:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.0.0/24
+          gateway: 172.16.0.1
+  dmz:
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.0.0.0/24
+          gateway: 10.0.0.1
+
