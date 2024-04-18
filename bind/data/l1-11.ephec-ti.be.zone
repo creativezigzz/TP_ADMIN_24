@@ -8,7 +8,9 @@ $TTL    86400
                                 )
                 IN      NS      ns.l1-11.ephec-ti.be.
                 IN      A       54.37.14.39
+		IN	MX  10  mail.l1-11.ephec-ti.be.
 ns              IN      A       54.37.14.39
 www             IN      A       54.37.14.39
 blog		IN	CNAME	www.l1-11.ephec-ti.be.
-mx		IN	A	54.37.14.39
+mail		IN	A	54.37.14.39
+_acme-challenge IN      TXT     "cNKpO0CtZc_wmcg8GZ14aS1VS78WVK-dnGaHziuwd7A"
