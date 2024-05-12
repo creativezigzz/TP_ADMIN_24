@@ -1,16 +1,22 @@
 $TTL    86400
 @               IN      SOA     ns.l1-11.ephec-ti.be. admin.l1-11.ephec-ti.be. (
-                                2023041701      ; serial number
+                                2023051205      ; serial number
                                 14400              ; refresh
                                 3600            ; retry
                                 604800          ; expire
                                 86400           ; minimum TTL
                                 )
                 IN      NS      ns.l1-11.ephec-ti.be.
-                IN      A       54.37.14.39
+                IN      A       54.37.15.74
+                IN      TXT     "v=spf1 mx -all"
 		IN	MX  10  mail.l1-11.ephec-ti.be.
 ns              IN      A       54.37.14.39
 www             IN      A       54.37.14.39
-blog		IN	CNAME	www.l1-11.ephec-ti.be.
+www             IN      A       54.37.14.10 ; VPS Thib
 mail		IN	A	54.37.14.39
+blog		IN	CNAME	www.l1-11.ephec-ti.be.
 _acme-challenge IN      TXT     "cNKpO0CtZc_wmcg8GZ14aS1VS78WVK-dnGaHziuwd7A"
+_dmarc.l1-11.ephec-ti.be. IN TXT "v=DMARC1; p=quarantine; rua=mailto:igzz@l1-11.ephec-ti.be; ruf=mailto:igzz@l1-11.ephec-ti.be; sp=quarantine; ri=86400"
+mail._domainkey.l1-11.ephec-ti.be.	IN	TXT	( "v=DKIM1; h=sha256; k=rsa; "
+	  "p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwSnv/NECPqpvzXly0F2xz1Iu01UWSOPNvKIdcu6mERBBkJfM/iERs05qKgnxXssREWNvqhlVfaaRo1wVxmucLc/qAsDeCGNK9PbGlYl7D098DD2iv98v0Yp13HYbBhVBYfiRg3jkeUz5aD1I2YsaWSDslZCDIPgi4+6X2kn4ZvffGsRqbMSH6yHLgzfz8gSljBKJxQ71XdIMUK"
+	  "IxcxrySBE9omqNZvKeTOhKk1I09Sj/ViU0OSDrMtys7FZsKzNVYHw83brxXGDetOF4sjQRpbysJnuLFFtDTaOwaCtvCskEESRX8xC7I7PzEpm5IT6PwVTWd5vZHMiTPOzekKgbQQIDAQAB" )  ; ----- DKIM key mail for l1-11.ephec-ti.be

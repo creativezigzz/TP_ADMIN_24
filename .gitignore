@@ -8,4 +8,10 @@ letsencrypt/certificate/nginx-selfsigned.key
 certificates/private/nginx-selfsigned.key
 nginx/letsencrypt/
 nginx/letsencrypt/*
+nginx/letsencrypt/
+docker-data/
+docker_swarm/
+nginx/config/fastcgi_params
+nginx/config/nginx.conf.old
+nginx/config/sites-available/
 mail/data/dms/*
