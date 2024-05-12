@@ -6,5 +6,6 @@ letsencrypt/certificate/nginx-selfsigned.crt
 letsencrypt/certificate/nginx-selfsigned.csr
 letsencrypt/certificate/nginx-selfsigned.key
 certificates/private/nginx-selfsigned.key
+nginx/letsencrypt/
 nginx/letsencrypt/*
 mail/data/dms/*
